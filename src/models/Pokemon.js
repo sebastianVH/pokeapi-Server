@@ -49,6 +49,10 @@ module.exports = (sequelize) => {
     weight:{
       type: DataTypes.INTEGER,
       allowNull:true
+    },
+    author:{
+      type: DataTypes.STRING,
+      allowNull:true
     }
   },{ timestamps: false });
 };

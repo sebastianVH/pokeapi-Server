@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize")
 const { Pokemon,Type } = require("../db")
 
 const postPokemon = async (req,res) => {
-    const {name,image,hp,attack,defense,speed,height,weight,types} = req.body
+    const {name,image,hp,attack,defense,speed,height,weight,types,author} = req.body
     if(!name || !image || !hp || !attack || !defense || !types) return res.status(400).json({error: "Missing Data to Create a Pokemon"})
     try {
         const createdPokemon = await Pokemon.create({
@@ -13,7 +13,8 @@ const postPokemon = async (req,res) => {
             defense:defense,
             speed:speed || 0,
             height: height || 0,
-            weight: weight || 0
+            weight: weight || 0,
+            author: author ||"Unknown"
         })
 
         await types.forEach (async type =>{
