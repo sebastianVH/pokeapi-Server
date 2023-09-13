@@ -4,7 +4,7 @@ const constructPokemon = require("../constructors/createPokemonStats");
 
 const getAllPokemons = async () =>{
     try{
-        const getApiPokemons = await axios("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1281") //! COMPLETAR
+        const getApiPokemons = await axios("https://pokeapi.co/api/v2/pokemon?offset=0&limit=150") //! COMPLETAR
         const arrayPokemons = getApiPokemons.data.results
 
         const pokemonPromises = arrayPokemons.map(async (pokemon) => {
