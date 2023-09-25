@@ -13,7 +13,6 @@ const getAllPokemons = async () =>{
         });
 
         const newPokemons = await Promise.all(pokemonPromises);
-
         const getDbPokemons = await Pokemon.findAll({ include: Type })
         return {status:200, data: {api: newPokemons, database: getDbPokemons}}
     } catch(error){
